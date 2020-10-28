@@ -28,9 +28,6 @@ class _GoogleAuthenticationState extends State<GoogleAuthentication> {
     await _firebaseAuth.signInWithCredential(authCredential);
     final User user = userCredential.user;
     usuario = user;
-    print("+++++++++++++++++++++++++++++++++++++++++++");
-    print(user);
-    print("+++++++++++++++++++++++++++++++++++++++++++");
     assert(user.displayName != null);
     assert(user.email != null);
     assert(user.photoURL != null);
@@ -57,7 +54,7 @@ class _GoogleAuthenticationState extends State<GoogleAuthentication> {
             color: Colors.red,
             onPressed: () => googleSignIn().whenComplete(() {
               Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => HomePage(user: usuario)));
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
             }),
             child: Text('Google Login'),
           ),

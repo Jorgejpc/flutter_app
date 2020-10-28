@@ -2,6 +2,9 @@ import 'package:flutter_app/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import 'firebase_storage_user.dart';
+import 'navbar_home.dart';
+
 class Register extends StatefulWidget {
   @override
   _RegisterState createState() => _RegisterState();
@@ -91,18 +94,17 @@ class _RegisterState extends State<Register> {
     final User user = (await _auth.createUserWithEmailAndPassword(
       email: _emailController.text,
       password: _passwordController.text,
-    ))
-        .user;
+    )).user;
 
     if (user != null) {
       if (!user.emailVerified) {
         await user.sendEmailVerification();
       }
       await user.updateProfile(displayName: _displayName.text);
+      userSetup();
       final user1 = _auth.currentUser;
       Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => HomePage(
-            user: user1,
           )));
     } else {
       _isSuccess = false;

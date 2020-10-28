@@ -1,4 +1,7 @@
 import 'package:flutter_app/register.dart';
+import 'package:flutter_app/screens/login/login_form.dart';
+import 'package:flutter_app/screens/login/login_screen.dart';
+import 'package:flutter_app/screens/register/register_screen.dart';
 import 'package:flutter_app/sign_in_page.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +24,7 @@ class _FirebaseAuthDemoState extends State<FirebaseAuthDemo> {
           Container(
             child: OutlineButton(
               child: Text("Signin"),
-              onPressed: () => _pushPage(context, SignIn()),
+              onPressed: () => _pushPage(context, LoginScreen()),
             ),
             padding: const EdgeInsets.all(16),
             alignment: Alignment.center,
@@ -29,7 +32,7 @@ class _FirebaseAuthDemoState extends State<FirebaseAuthDemo> {
           Container(
             child: OutlineButton(
               child: Text("Register"),
-              onPressed: () => _pushPage(context, Register()),
+              onPressed: () => _pushPage(context, RegisterScreen()),
             ),
             padding: const EdgeInsets.all(16),
             alignment: Alignment.center,

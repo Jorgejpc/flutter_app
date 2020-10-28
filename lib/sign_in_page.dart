@@ -109,7 +109,6 @@ class _SignInState extends State<SignIn> {
       }
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
         return HomePage(
-          user: usuario,
         );
       }));
     } on FirebaseAuthException catch (e) {
