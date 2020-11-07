@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'firebase_storage_user.dart';
-import 'navbar_home.dart';
+import 'navbar/navbar_home.dart';
 
 class Register extends StatefulWidget {
   @override

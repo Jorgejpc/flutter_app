@@ -75,14 +75,6 @@ class _SignInState extends State<SignIn> {
                     },
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.only(top: 16.0),
-                  alignment: Alignment.center,
-                  child: OutlineButton(
-                    child: Text("Google Sign In"),
-                    onPressed: () => _pushPage(context, GoogleAuthentication()),
-                  ),
-                ),
               ],
             ),
           ),

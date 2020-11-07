@@ -161,38 +161,6 @@ class _LoginFormState extends State<LoginForm> {
     );
   }
 
-
-
-
-  Future<String> googleSignIn() async {
-    final GoogleSignInAccount googleSignInAccount =
-    await _googleSignIn.signIn();
-    final GoogleSignInAuthentication googleSignInAuthentication =
-    await googleSignInAccount.authentication;
-    final AuthCredential authCredential = GoogleAuthProvider.credential(
-        accessToken: googleSignInAuthentication.accessToken,
-        idToken: googleSignInAuthentication.idToken);
-
-    final UserCredential userCredential =
-    await _firebaseAuth.signInWithCredential(authCredential);
-    final User user = userCredential.user;
-    usuario = user;
-    assert(user.displayName != null);
-    assert(user.email != null);
-    assert(user.photoURL != null);
-
-    setState(() {
-      name = user.displayName;
-      email = user.email;
-      photoUrl = user.photoURL;
-    });
-
-    final User currentUser = _firebaseAuth.currentUser;
-    assert(currentUser.uid == user.uid);
-
-    return 'Logged In';
-  }
-
 }
 
 

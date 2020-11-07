@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_app/authentication_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/screens/login/login_screen.dart';
 
 class NavbarHome extends StatefulWidget {
 
@@ -37,7 +39,7 @@ class _NavbarHomeState extends State<NavbarHome> {
                 onPressed: () {
                   _signOut().whenComplete(() {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => FirebaseAuthDemo()));
+                        builder: (context) => LoginScreen()));
                   });
                 },
               ),
@@ -46,11 +48,13 @@ class _NavbarHomeState extends State<NavbarHome> {
         ),
       ),
     );
+
   }
 
   Future _signOut() async {
     await _auth.signOut();
   }
+
 }
 
 
